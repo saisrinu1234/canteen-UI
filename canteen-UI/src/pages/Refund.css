@@ -1,0 +1,83 @@
+/* Page */
+.refund-container {
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background: #f4f6fb;
+  padding: 20px;
+}
+
+/* Card */
+.refund-card {
+  width: 100%;
+  max-width: 420px;
+  background: #fff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Heading */
+.refund-card h2 {
+  color: #1e293b;
+  margin-bottom: 25px;
+  font-size: 28px;
+}
+
+/* Input */
+.refund-card input {
+  width: 100%;
+  padding: 12px 15px;
+  font-size: 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  outline: none;
+  transition: 0.3s;
+  margin-bottom: 20px;
+}
+
+.refund-card input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 8px rgba(37, 99, 235, 0.2);
+}
+
+/* Button */
+.refund-btn {
+  width: 100%;
+  padding: 12px;
+  background: #dc2626;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 17px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.refund-btn:hover {
+  background: #b91c1c;
+  transform: translateY(-2px);
+}
+
+.refund-btn:active {
+  transform: scale(0.98);
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .refund-card {
+    padding: 20px;
+  }
+
+  .refund-card h2 {
+    font-size: 24px;
+  }
+
+  .refund-card input,
+  .refund-btn {
+    font-size: 15px;
+  }
+}
