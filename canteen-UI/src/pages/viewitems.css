@@ -1,8 +1,7 @@
 /* Container */
 .vi-container {
   padding: 25px;
-  background: #f4f6f9;
-  min-height: 100vh;
+  background: #f7f8fa;
 }
 
 .vi-title {
@@ -15,7 +14,7 @@
 /* Responsive Grid */
 .vi-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, 270px);
   gap: 20px;
 }
 
@@ -25,8 +24,8 @@
   border-radius: 12px;
   overflow: hidden;
   position: relative;
-  box-shadow: 0 6px 18px rgba(0,0,0,.08);
-  transition: .3s;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  transition: 0.3s;
   width: 100%;
 }
 
@@ -48,13 +47,15 @@
 
 /* Content */
 .vi-content {
-  padding: 15px;
+  padding: 10px;
 }
 
 .vi-name {
-  font-size: 18px;
-  margin: 5px 0;
   text-align: center;
+  font-size: 22px;
+  font-weight: 700;
+  color: #222;
+  text-transform: capitalize;
 }
 
 .vi-desc {
@@ -63,32 +64,84 @@
 }
 
 .vi-price {
-  margin-top: 10px;
+  margin-top: 5px;
   text-align: center;
-  font-weight: bold;
+  font-size: 20px;
+  font-weight: 600;
   color: #16a34a;
+}
+
+/* Button Container */
+.vi-actions {
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+}
+
+/* Both buttons */
+.vi-actions button {
+  flex: 1;
+  padding: 5px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: 0.3s;
 }
 
 /* Delete Button */
 .vi-deleteBtn {
-  position: absolute;
-  top: 10px;
-  right: 10px;
   background: #ef4444;
   color: white;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 6px;
-  cursor: pointer;
 }
 
 .vi-deleteBtn:hover {
   background: #dc2626;
 }
 
+/* Available/Unavailable Button */
+.vi-statusBtn.available {
+  background: #f59e0b;
+  color: white;
+}
+
+.vi-statusBtn.available:hover {
+  background: #d97706;
+}
+
+.vi-statusBtn.unavailable {
+  background: #22c55e;
+  color: white;
+}
+
+.vi-statusBtn.unavailable:hover {
+  background: #16a34a;
+}
+
+/* Unavailable card */
+.vi-unavailable {
+  background: #373738; /* Light gray */
+  border: 1px solid #d1d5db;
+}
+
+/* Blur only the image */
+.vi-unavailable .vi-img {
+  filter: blur(2px) grayscale(80%);
+}
+
+/* Fade the content slightly */
+.vi-unavailable .vi-content {
+  opacity: 0.75;
+}
+
+/* Keep buttons clear */
+.vi-unavailable .vi-actions {
+  opacity: 1;
+  filter: none;
+}
 /* Tablet */
 @media (max-width: 768px) {
-
   .vi-container {
     padding: 15px;
   }
@@ -109,7 +162,6 @@
 
 /* Mobile */
 @media (max-width: 480px) {
-
   .vi-grid {
     grid-template-columns: 1fr;
   }

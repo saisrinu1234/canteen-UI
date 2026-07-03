@@ -153,6 +153,7 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 20px;
+  padding: 20px;
 }
 .menu-card {
   border: 1px solid #ddd;
@@ -162,44 +163,17 @@ body {
   flex-direction: column;
   align-items: center;
   overflow: hidden;
-  background: #fff;
-  box-shadow: 0 4px 12px rgba(0,0,0,.1);
+  background: #e0dede;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   transition: 0.3s;
 }
 
-
 .menu-card img {
   width: 100%;
+  border-radius: 12px;
   height: 140px;
   object-fit: cover;
 }
-
-.menu-card.unavailable {
-  background: #333;
-  color: white;
-  opacity: 0.7;
-}
-
-.menu-card button {
-  margin-top: 10px;
-  padding: 6px;
-  background: green;
-  color: white;
-  border: none;
-}
-
-.menu-card button:disabled {
-  background: gray;
-}
-.sidebar {
-  z-index: 1000;
-}
-
-.overlay {
-  z-index: 999;
-}
-
-
 
 .menu-card:hover {
   transform: translateY(-5px);
@@ -228,39 +202,14 @@ body {
   border-radius: 5px;
 }
 
-/* Content */
-.card-content {
-  padding: 12px;
-}
-
-/* Name + Price */
-.card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.card-header h3 {
-  font-size: 16px;
-  margin: 0;
-}
-
-.price {
-  font-weight: bold;
-  color: #28a745;
-}
-
 /* Button */
 .cart-btn {
   width: 100%;
-  margin-top: 10px;
   padding: 8px;
-
   background: #28a745;
   color: white;
   border: none;
   border-radius: 6px;
-
   cursor: pointer;
   transition: 0.2s;
 }
@@ -276,10 +225,12 @@ body {
 
 /* Unavailable card */
 .menu-card.unavailable {
-  opacity: 0.7;
+  opacity: 0.1;
   filter: grayscale(40%);
+  background: #333;
+  color: white;
+  opacity: 0.7;
 }
-
 /* ==========================
    Profile
 ========================== */
@@ -466,23 +417,21 @@ body {
 }
 
 .details {
-  width: 100%;
-  padding: 12px;
+  text-align: center;
+  padding: 12px 15px;
 }
 
-.details p {
-  margin: 5px 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.item-name {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+  color: #222;
+  text-transform: capitalize;
 }
 
-.label {
-  font-weight: bold;
-  color: #475569;
-}
-
-.details p:last-child {
+.item-price {
+  margin-top: 8px;
+  font-size: 20px;
+  font-weight: 600;
   color: #16a34a;
-  font-weight: bold;
 }

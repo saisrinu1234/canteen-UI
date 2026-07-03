@@ -132,6 +132,7 @@ body {
 /* 📦 Page title */
 .admin-page h2 {
   color: #1e293b;
+  margin-bottom: 15px;
 }
 
 .admin-page h3 {

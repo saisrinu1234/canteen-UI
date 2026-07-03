@@ -29,6 +29,14 @@ function ViewItems() {
       console.log(err);
     }
   };
+  const toggleAvailability = async (id) => {
+    try {
+      const response = await api.put(`/menu/admin/availability/${id}`);
+      fetchItems();
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <div className="vi-container">
@@ -36,8 +44,10 @@ function ViewItems() {
 
       <div className="vi-grid">
         {items.map((item) => (
-          <div key={item.id} className="vi-card">
-
+          <div
+            key={item.id}
+            className={`vi-card ${!item.available ? "vi-unavailable" : ""}`}
+          >
             <div className="vi-imgBox">
               <img
                 src={`data:image/jpeg;base64,${item.image}`}
@@ -51,13 +61,21 @@ function ViewItems() {
               <div className="vi-price">₹{item.price}</div>
             </div>
 
-            <button
-              className="vi-deleteBtn"
-              onClick={() => deleteItem(item.id)}
-            >
-              🗑 Delete
-            </button>
+            <div className="vi-actions">
+              <button
+                className="vi-statusBtn"
+                onClick={() => toggleAvailability(item.id)}
+              >
+                {item.available ? "🚫 Unavailable" : "✅ Available"}
+              </button>
 
+              <button
+                className="vi-deleteBtn"
+                onClick={() => deleteItem(item.id)}
+              >
+                🗑 Delete
+              </button>
+            </div>
           </div>
         ))}
       </div>

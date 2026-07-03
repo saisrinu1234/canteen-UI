@@ -45,14 +45,9 @@ const Home = () => {
               <img src={imageSrc} alt={item.name} />
 
               <div className="details">
-                <p>
-                  <span className="label">Name:</span> {item.name}
-                </p>
-                <p>
-                  <span className="label">Price:</span> ₹{item.price}
-                </p>
+                <h3 className="item-name">{item.name}</h3>
+                <p className="item-price">₹{item.price}</p>
               </div>
-
               <button
                 className="cart-btn"
                 disabled={!item.available}

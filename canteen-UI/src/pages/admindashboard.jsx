@@ -37,6 +37,7 @@ function AdminDashboard() {
         <h2>Admin Panel</h2>
 
         <div className="nav-links">
+          <button onClick={() => navigate("")}>Home</button>
           <button onClick={() => navigate("view-items")}>🍽 View Items</button>
           <button onClick={() => navigate("add-product")}>
             ➕ Add Product

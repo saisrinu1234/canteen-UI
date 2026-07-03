@@ -1,79 +1,95 @@
-/* Container */
 .orders-container {
-  max-width: 700px;
+  max-width: 900px;
   margin: 40px auto;
   padding: 20px;
-  font-family: 'Segoe UI', sans-serif;
 }
 
-/* Title */
 .title {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+}
+
+.section-title {
+  margin: 30px 0 15px;
+  font-size: 22px;
   color: #333;
+  border-left: 5px solid #ff9800;
+  padding-left: 10px;
 }
 
-/* Empty message */
-.empty {
-  text-align: center;
-  color: gray;
+.history-title {
+  margin-top: 50px;
 }
 
-/* Card */
 .order-card {
-  background: #ffffff;
+  background: rgb(224, 55, 55);
   border-radius: 12px;
-  padding: 15px 20px;
-  margin-bottom: 15px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  transition: transform 0.2s;
+  padding: 18px;
+  margin-bottom: 18px;
+  box-shadow: 0 3px 12px rgba(0,0,0,.08);
+  transition: .25s;
 }
 
 .order-card:hover {
   transform: translateY(-3px);
+  box-shadow: 0 8px 18px rgba(0,0,0,.15);
 }
 
-/* Header */
 .order-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-/* Status */
+.pending,
 .served {
-  background: #d4edda;
-  color: #155724;
-  padding: 5px 10px;
-  border-radius: 20px;
-  font-size: 12px;
+  padding: 6px 14px;
+  border-radius: 30px;
+  font-size: 14px;
+  color: white;
 }
 
 .pending {
-  background: #fff3cd;
-  color: #856404;
-  padding: 5px 10px;
-  border-radius: 20px;
-  font-size: 12px;
+  background: #ff9800;
 }
 
-/* Total */
+.served {
+  background: #2e7d32;
+}
+
+.date {
+  color: gray;
+  font-size: 14px;
+  margin: 8px 0;
+}
+
 .total {
+  font-size: 20px;
   font-weight: bold;
-  margin: 10px 0;
+  color: #222;
+  margin-bottom: 15px;
 }
 
-/* Items */
 .items {
   border-top: 1px solid #eee;
-  margin-top: 10px;
-  padding-top: 10px;
+  padding-top: 12px;
 }
 
-/* Single item */
 .item {
   display: flex;
   justify-content: space-between;
-  padding: 5px 0;
-  color: #444;
+  padding: 8px 0;
+}
+
+.payment {
+  margin-top: 15px;
+  padding-top: 10px;
+  border-top: 1px dashed #ddd;
+  font-weight: 600;
+}
+
+.empty {
+  color: gray;
+  text-align: center;
+  margin: 25px 0;
 }

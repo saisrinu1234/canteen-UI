@@ -2,7 +2,7 @@ import "./App.css";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "./context/AuthContext";
-
+import AdminHome from "./pages/AdminHome";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
@@ -85,7 +85,7 @@ function AppContent() {
           </ProtectedRoute>
         }
       >
-        <Route index element={<h2>Welcome Admin</h2>} />
+        <Route index element={<AdminHome />} />
         <Route path="add-product" element={<AddProduct />} />
         <Route path="adminorders" element={<AdminOrders />} />
         <Route path="view-items" element={<ViewItems />} />
