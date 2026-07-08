@@ -69,8 +69,11 @@ const Cart = () => {
         razorpay.open();
       }, 300);
     } catch (error) {
-      console.error(error);
-      alert("Order failed ❌");
+      if (error.response) {
+        alert(error.response.data);
+      } else {
+        alert("Network Error");
+      }
     }
   };
 
@@ -120,11 +123,15 @@ const Cart = () => {
         <p className="empty">Cart is empty</p>
       ) : (
         cartItems.map((item, index) => {
-          const imageSrc = `data:image/jpeg;base64,${item.image}`;
-
           return (
             <div className="cart-card" key={index}>
-              <img src={imageSrc} alt={item.name} />
+              <img
+                src={item.imageUrl}
+                alt={item.name}
+                onError={(e) => {
+                  e.target.src = "/no-image.png"; // Optional fallback image
+                }}
+              />
 
               <div className="cart-details">
                 <h4>{item.name}</h4>

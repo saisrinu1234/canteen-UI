@@ -44,8 +44,11 @@ function AddProduct() {
       // optional: reset file input visually
       e.target.reset();
     } catch (err) {
-      console.log(err);
-      alert("Failed to add product");
+      if (err.response) {
+        alert(err.response.data);
+      } else {
+        alert("Unable to connect to the server");
+      }
     }
   };
 

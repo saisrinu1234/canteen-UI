@@ -13,6 +13,7 @@ function Login() {
   const [errors, setErrors] = useState({});
   const { setAuthenticated } = useContext(AuthContext);
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -42,8 +43,9 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // ❌ stop if validation fails
     if (!validate()) return;
+
+    setLoading(true);
 
     try {
       const res = await api.post("/auth/login", form);
@@ -62,9 +64,10 @@ function Login() {
       } else {
         navigate("/dashboard");
       }
-
     } catch (error) {
-      alert(error.response?.data || "Login failed");
+      alert("Invalid Username or Password");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -74,12 +77,12 @@ function Login() {
         <h2>Login</h2>
 
         <form onSubmit={handleSubmit}>
-          <input
-            name="email"
-            placeholder="Email"
-            onChange={handleChange}
-          />
-          {errors.email && <p className="error" style={{textAlign:"left"}}>{errors.email}</p>}
+          <input name="email" placeholder="Email" onChange={handleChange} />
+          {errors.email && (
+            <p className="error" style={{ textAlign: "left" }}>
+              {errors.email}
+            </p>
+          )}
 
           <input
             name="password"
@@ -87,9 +90,22 @@ function Login() {
             placeholder="Password"
             onChange={handleChange}
           />
-          {errors.password && <p className="error" style={{textAlign:"left"}}>{errors.password}</p>}
+          {errors.password && (
+            <p className="error" style={{ textAlign: "left" }}>
+              {errors.password}
+            </p>
+          )}
 
-          <button type="submit">Login</button>
+          <button type="submit" disabled={loading}>
+            {loading ? (
+              <>
+                <span className="spinner"></span>
+                Logging in...
+              </>
+            ) : (
+              "Login"
+            )}
+          </button>
         </form>
 
         <div className="auth-link">
