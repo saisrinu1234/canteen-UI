@@ -126,7 +126,7 @@ function Login() {
               className="google-btn"
               onClick={() => {
                 window.location.href =
-                  "http://localhost:8080/oauth2/authorization/google";
+                  "https://canteen-xhhg.onrender.com/oauth2/authorization/google";
               }}
             >
               Continue with Google
