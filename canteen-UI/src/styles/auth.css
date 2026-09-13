@@ -1,28 +1,43 @@
-/* Full page background */
 .auth-container {
   height: 100vh;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background-image: url("../assets/burger.png"); /* Replace with your image link or path */
+  background-color: black;
+  background-size: cover; /* Ensures the image covers the full screen */
+  background-position: center; /* Keeps the image centered */
+  background-repeat: no-repeat; /* Prevents tiling */
+  background-attachment: fixed;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /* Card */
 .auth-card {
-  background: #fff;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  background-color: black;
   padding: 2.5rem;
   width: 320px;
   border-radius: 16px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
   text-align: center;
 }
+.login-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: rgba(0, 0, 0, 0.75);
+  border: #333;
+  padding: 20px;
+  border-radius: 30px;
+}
 
 /* Title */
 .auth-card h2 {
   margin-bottom: 1.5rem;
-  color: #333;
+  color: #faf8f8;
 }
 
 /* Inputs */
@@ -31,10 +46,11 @@
   padding: 10px;
   margin-bottom: 1rem;
   border-radius: 8px;
-  border: 1px solid #ccc;
+  border: 1px solid #f4f1f1;
   outline: none;
   transition: 0.3s;
   font-size: 14px;
+  background-color: rgb(245, 241, 241);
 }
 
 /* Input focus effect */
@@ -49,7 +65,7 @@
   padding: 10px;
   border: none;
   border-radius: 8px;
-  background: #667eea;
+  background: rgb(206, 136, 5);
   color: white;
   font-size: 16px;
   cursor: pointer;
@@ -58,7 +74,7 @@
 
 /* Button hover */
 .auth-card button:hover {
-  background: #5a67d8;
+  background: orange;
 }
 
 /* Link section */
@@ -69,9 +85,9 @@
 
 /* Clickable link */
 .auth-link span {
-  color: #667eea;
+  color: #edeef3;
   cursor: pointer;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 /* Hover effect */
@@ -81,5 +97,130 @@
 .error {
   color: red;
   font-size: 12px;
-  margin: -10px 0 3px 0px;
+  margin: -10px 0 3px 5px;
+  display: flex;
+  justify-content: flex-start;
+}
+.google-btn {
+  width: 100%;
+  padding: 12px;
+  background: white;
+  color: #444;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.google-btn:hover {
+  background: #f5f5f5;
+}
+/* Spinner Container inside Button */
+.spinner {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border: 3px solid rgba(255, 255, 255, 0.3); /* Subtle white track */
+  border-top-color: #ffffff; /* Solid white active arc */
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  vertical-align: middle;
+}
+
+/* Keyframes animation to make it rotate */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+/* ===========================
+   Tablet
+=========================== */
+@media screen and (max-width: 768px) {
+  .auth-container {
+    padding: 20px;
+    height: auto;
+    min-height: 100vh;
+    background-attachment: scroll;
+  }
+
+  .login-container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 420px;
+    padding: 20px;
+    border-radius: 20px;
+    background: rgba(0, 0, 0, 0.75);
+  }
+
+  .login-container img {
+    width: 220px;
+    height: auto;
+    margin-bottom: 20px;
+  }
+
+  .auth-card {
+    width: 100%;
+    margin: 0;
+    padding: 25px;
+  }
+}
+
+/* ===========================
+   Mobile
+=========================== */
+@media screen and (max-width: 480px) {
+  .auth-container {
+    padding: 15px;
+    background-position: center;
+    background-size: cover;
+  }
+
+  .login-container {
+    width: 100%;
+    padding: 15px;
+    border-radius: 18px;
+  }
+
+  .login-container img {
+    width: 180px;
+    height: auto;
+    margin-bottom: 15px;
+  }
+
+  .auth-card {
+    width: 100%;
+    padding: 20px;
+    border-radius: 15px;
+  }
+
+  .auth-card h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .auth-card input {
+    padding: 12px;
+    font-size: 15px;
+    margin-bottom: 15px;
+  }
+
+  .auth-card button,
+  .google-btn {
+    padding: 12px;
+    font-size: 15px;
+  }
+
+  .auth-link {
+    font-size: 14px;
+  }
+
+  .error {
+    font-size: 12px;
+  }
 }

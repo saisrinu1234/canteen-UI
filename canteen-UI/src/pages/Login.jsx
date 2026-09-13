@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import api from "../api/axios";
 import "../styles/auth.css";
 import { AuthContext } from "../context/AuthContext";
+import BurgerImage from "../assets/burger.png";
 
 function Login() {
   const [form, setForm] = useState({
@@ -65,7 +66,11 @@ function Login() {
         navigate("/dashboard");
       }
     } catch (error) {
-      alert("Invalid Username or Password");
+      if (error.status == 429) {
+        alert("Too many Requests");
+      } else {
+        alert("Invalid Username or Password");
+      }
     } finally {
       setLoading(false);
     }
@@ -73,45 +78,65 @@ function Login() {
 
   return (
     <div className="auth-container">
-      <div className="auth-card">
-        <h2>Login</h2>
+      <div className="login-container">
+        <img src={BurgerImage} alt="Image Loading" />
+        <div className="auth-card">
+          <h2>Login</h2>
 
-        <form onSubmit={handleSubmit}>
-          <input name="email" placeholder="Email" onChange={handleChange} />
-          {errors.email && (
-            <p className="error" style={{ textAlign: "left" }}>
-              {errors.email}
-            </p>
-          )}
-
-          <input
-            name="password"
-            type="password"
-            placeholder="Password"
-            onChange={handleChange}
-          />
-          {errors.password && (
-            <p className="error" style={{ textAlign: "left" }}>
-              {errors.password}
-            </p>
-          )}
-
-          <button type="submit" disabled={loading}>
-            {loading ? (
-              <>
-                <span className="spinner"></span>
-                Logging in...
-              </>
-            ) : (
-              "Login"
+          <form onSubmit={handleSubmit}>
+            <input name="email" placeholder="Email" onChange={handleChange} />
+            {errors.email && (
+              <p className="error" style={{ textAlign: "left" }}>
+                {errors.email}
+              </p>
             )}
-          </button>
-        </form>
 
-        <div className="auth-link">
-          <span onClick={() => navigate("/register")}>
-            Don't have an account? Register
-          </span>
+            <input
+              name="password"
+              type="password"
+              placeholder="Password"
+              onChange={handleChange}
+            />
+            {errors.password && (
+              <p className="error" style={{ textAlign: "left" }}>
+                {errors.password}
+              </p>
+            )}
+
+            <button type="submit" disabled={loading}>
+              {loading ? (
+                <>
+                  <span className="spinner"></span>
+                  <span style={{ marginLeft: "8px" }}>Logging in...</span>
+                </>
+              ) : (
+                "Login"
+              )}
+            </button>
+          </form>
+          <div className="auth-link">
+            <span onClick={() => navigate("/forgot-password")}>
+              Forgot Password?
+            </span>
+          </div>
+
+          <div style={{ marginTop: "20px" }}>
+            <button
+              type="button"
+              className="google-btn"
+              onClick={() => {
+                window.location.href =
+                  "http://localhost:8080/oauth2/authorization/google";
+              }}
+            >
+              Continue with Google
+            </button>
+            <div className="auth-link">
+              <span onClick={() => navigate("/register")}>
+                Don't have an account? Register
+              </span>
+            </div>
+          </div>
         </div>
       </div>
     </div>

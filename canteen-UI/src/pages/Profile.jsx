@@ -18,7 +18,7 @@ const Profile = () => {
   const fetchUser = async () => {
     try {
       const email = localStorage.getItem("usermail");
-      const res = await api.get(`/auth/get/${email}`);
+      const res = await api.get("/auth/get/profile");
       setUser(res.data);
 
       // ✅ fill form with existing data
@@ -41,7 +41,7 @@ const Profile = () => {
     try {
       const email = localStorage.getItem("usermail");
 
-      const res = await api.put(`/auth/update/${email}`, form);
+      const res = await api.put("/auth/update/profile", form);
 
       setUser(res.data); // update UI
       setEditing(false); // close edit mode

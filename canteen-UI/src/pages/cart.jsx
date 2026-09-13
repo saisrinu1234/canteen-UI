@@ -54,7 +54,7 @@ const Cart = () => {
             signature: response.razorpay_signature,
           });
 
-          alert("Payment Successful ✅");
+          alert("Order placed Successful ✅");
 
           localStorage.removeItem("cart");
           setCartItems([]);
@@ -70,7 +70,11 @@ const Cart = () => {
       }, 300);
     } catch (error) {
       if (error.response) {
-        alert(error.response.data);
+        if (error.status == 403) {
+          alert("Unable to Order");
+        } else {
+          alert(error.response.data);
+        }
       } else {
         alert("Network Error");
       }

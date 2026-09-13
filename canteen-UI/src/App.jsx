@@ -17,7 +17,9 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import AddProduct from "./pages/add-produxt";
 import AdminOrders from "./pages/adminorders";
 import Refund from "./pages/Refund";
-
+import OAuthSuccess from "./pages/OAuthSuccess";
+import ForgotPassword from "./pages/ForgotPassword";
+import ResetPassword from "./pages/ResetPassword";
 function AppContent() {
   const { authenticated, loading } = useContext(AuthContext);
 
@@ -54,6 +56,10 @@ function AppContent() {
         path="/login"
         element={authenticated ? <Navigate to="/" /> : <Login />}
       />
+      <Route path="/forgot-password" element={<ForgotPassword />} />
+
+      <Route path="/reset-password" element={<ResetPassword />} />
+      <Route path="/oauth-success" element={<OAuthSuccess />} />
 
       {/* 🔐 Register */}
       <Route
